@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meme Generator</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* VS Code-Like Dark Background */
+    body {
+      font-family: Consolas, "Courier New", monospace;
+      background-color: #1e1e1e;
+      color: #c5c5c5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* A top bar resembling the VS Code title bar */
+    header {
+      background-color: #333333;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+    }
+    header h1 {
+      color: #c5c5c5;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Main content area */
+    main {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      overflow: auto;
+    }
+
+    /* A side panel resembling VS Code’s side bar */
+    aside {
+      background-color: #252526;
+      width: 250px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    aside label {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    aside input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      background-color: #333;
+      border: 1px solid #444;
+      border-radius: 3px;
+      color: #c5c5c5;
+    }
+    aside button {
+      background-color: #0e639c;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 3px;
+      transition: background-color 0.2s ease;
+    }
+    aside button:hover {
+      background-color: #1177bb;
+    }
+
+    /* The main workspace area */
+    section {
+      flex: 1;
+      padding: 16px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Canvas styling */
+    #memeCanvas {
+      border: 1px solid #555;
+      margin-top: 16px;
+      max-width: 100%;
+    }
+
+    /* Scrollbars on dark mode (optional) */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: #252526;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VS Code Meme Generator</h1>
+  </header>
+
+  <main>
+    <!-- Side bar for inputs and buttons -->
+    <aside>
+      <div>
+        <label for="keywordInput">Meme Keyword</label>
+        <input
+          type="text"
+          id="keywordInput"
+          placeholder="e.g. drake"
+        />
+      </div>
+      <div>
+        <label for="topTextInput">Top Text</label>
+        <input
+          type="text"
+          id="topTextInput"
+          placeholder="e.g. WHEN YOU CODE"
+        />
+      </div>
+      <div>
+        <label for="bottomTextInput">Bottom Text</label>
+        <input
+          type="text"
+          id="bottomTextInput"
+          placeholder="e.g. AND IT WORKS"
+        />
+      </div>
+      <button id="generateBtn">Generate Meme</button>
+      <button id="copyBtn">Copy Meme</button>
+    </aside>
+
+    <!-- Main workspace area for the canvas -->
+    <section>
+      <canvas id="memeCanvas" width="500" height="500"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
